@@ -114,7 +114,6 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-nebula-pink font-mono text-sm tracking-widest uppercase">// Experience</span>
           <h2 className="font-orbitron font-bold text-3xl md:text-5xl mt-3 text-star-white">
             Mission <span className="text-gradient-warm">Archives</span>
           </h2>

@@ -20,7 +20,6 @@ export default function Education() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-star-gold font-mono text-sm tracking-widest uppercase">// Education & Achievements</span>
           <h2 className="font-orbitron font-bold text-3xl md:text-5xl mt-3 text-star-white">
             Training <span className="text-gradient">Academy</span>
           </h2>

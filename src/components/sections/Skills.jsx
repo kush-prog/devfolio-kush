@@ -1,3 +1,4 @@
+
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { skillCategories } from '../../data/skills';
@@ -15,14 +16,23 @@ function SkillBar({ name, level, color, delay }) {
       className="group"
     >
       <div className="flex justify-between items-center mb-1.5">
-        <span className="text-sm text-star-silver group-hover:text-star-white transition-colors font-medium">{name}</span>
-        <span className="text-xs font-mono text-star-silver/50">{level}%</span>
+        <span className="text-sm text-star-silver group-hover:text-star-white transition-colors font-medium">
+          {name}
+        </span>
+        <span className="text-xs font-mono text-star-silver/50">
+          {level}%
+        </span>
       </div>
+
       <div className="h-2 bg-white/5 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: `${level}%` } : { width: 0 }}
-          transition={{ duration: 1.2, delay: delay + 0.2, ease: 'easeOut' }}
+          transition={{
+            duration: 1.2,
+            delay: delay + 0.2,
+            ease: 'easeOut'
+          }}
           className="h-full rounded-full relative"
           style={{
             background: `linear-gradient(90deg, ${color}80, ${color})`,
@@ -31,7 +41,10 @@ function SkillBar({ name, level, color, delay }) {
         >
           <div
             className="absolute right-0 top-0 w-2 h-full rounded-full"
-            style={{ background: color, boxShadow: `0 0 8px ${color}` }}
+            style={{
+              background: color,
+              boxShadow: `0 0 8px ${color}`
+            }}
           />
         </motion.div>
       </div>
@@ -39,42 +52,29 @@ function SkillBar({ name, level, color, delay }) {
   );
 }
 
-function RadialProgress({ level, color, size = 60 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const circumference = 2 * Math.PI * 24;
-  const offset = circumference - (level / 100) * circumference;
-
-  return (
-    <div ref={ref} className="radial-progress" style={{ width: size, height: size }}>
-      <svg width={size} height={size} viewBox="0 0 60 60">
-        <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="4" />
-        <motion.circle
-          cx="30" cy="30" r="24"
-          fill="none"
-          stroke={color}
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          initial={{ strokeDashoffset: circumference }}
-          animate={isInView ? { strokeDashoffset: offset } : {}}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-          style={{ filter: `drop-shadow(0 0 6px ${color}40)` }}
-        />
-      </svg>
-      <span className="absolute text-xs font-mono font-bold" style={{ color }}>{level}</span>
-    </div>
-  );
+function getTier(level) {
+  if (level >= 88) return { label: 'Expert', dots: 5 };
+  if (level >= 78) return { label: 'Proficient', dots: 4 };
+  return { label: 'Familiar', dots: 3 };
 }
 
 export default function Skills() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-100px'
+  });
+
   const [activeCategory, setActiveCategory] = useState('backend');
 
   return (
-    <section id="skills" className="section-padding relative" ref={ref}>
+    <section
+      id="skills"
+      className="section-padding relative"
+      ref={ref}
+    >
       <div className="section-container">
+
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -82,10 +82,10 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-nebula-cyan font-mono text-sm tracking-widest uppercase">// Skills & Technologies</span>
           <h2 className="font-orbitron font-bold text-3xl md:text-5xl mt-3 text-star-white">
             Tech <span className="text-gradient">Arsenal</span>
           </h2>
+
           <div className="w-20 h-1 bg-gradient-to-r from-nebula-cyan to-nebula-blue rounded-full mx-auto mt-4" />
         </motion.div>
 
@@ -109,7 +109,10 @@ export default function Skills() {
               }`}
               style={
                 activeCategory === cat.id
-                  ? { backgroundColor: cat.color, boxShadow: `0 0 20px ${cat.color}40` }
+                  ? {
+                      backgroundColor: cat.color,
+                      boxShadow: `0 0 20px ${cat.color}40`
+                    }
                   : {}
               }
             >
@@ -132,12 +135,17 @@ export default function Skills() {
                 className="col-span-full"
               >
                 <div className="grid md:grid-cols-2 gap-8">
-                  {/* Progress Bars */}
+
+                  {/* Proficiency Bars */}
                   <div className="glass p-6 rounded-2xl space-y-5">
-                    <h3 className="font-orbitron text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: cat.color }}>
+                    <h3
+                      className="font-orbitron text-sm font-semibold mb-4 flex items-center gap-2"
+                      style={{ color: cat.color }}
+                    >
                       <span className="text-lg">{cat.icon}</span>
                       Proficiency Levels
                     </h3>
+
                     {cat.skills.map((skill, i) => (
                       <SkillBar
                         key={skill.name}
@@ -149,23 +157,72 @@ export default function Skills() {
                     ))}
                   </div>
 
-                  {/* Radial Charts */}
+                  {/* Skill Tier Grid */}
                   <div className="glass p-6 rounded-2xl">
-                    <h3 className="font-orbitron text-sm font-semibold mb-6 flex items-center gap-2" style={{ color: cat.color }}>
+                    <h3
+                      className="font-orbitron text-sm font-semibold mb-6 flex items-center gap-2"
+                      style={{ color: cat.color }}
+                    >
                       <span className="text-lg">{cat.icon}</span>
-                      Skill Overview
+                      Skill Strength
                     </h3>
-                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-6">
-                      {cat.skills.map((skill) => (
-                        <div key={skill.name} className="flex flex-col items-center gap-2 group">
-                          <RadialProgress level={skill.level} color={cat.color} />
-                          <span className="text-xs text-star-silver/60 group-hover:text-star-white transition-colors text-center leading-tight">
-                            {skill.name}
-                          </span>
-                        </div>
-                      ))}
+
+                    <div className="grid grid-cols-2 gap-3">
+                      {cat.skills.map((skill, i) => {
+                        const tier = getTier(skill.level);
+
+                        return (
+                          <motion.div
+                            key={skill.name}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={
+                              isInView
+                                ? { opacity: 1, y: 0 }
+                                : {}
+                            }
+                            transition={{ delay: i * 0.05 }}
+                            className="glass-hover p-3 rounded-xl border border-white/5 hover:border-white/10 transition-colors"
+                          >
+                            {/* Skill Name */}
+                            <div className="flex items-center justify-between mb-2">
+                              <span className="text-xs font-medium text-star-white truncate">
+                                {skill.name}
+                              </span>
+                            </div>
+
+                            {/* Tier and Rating Dots */}
+                            <div className="flex items-center justify-between gap-2">
+                              <span
+                                className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full"
+                                style={{
+                                  backgroundColor: `${cat.color}20`,
+                                  color: cat.color
+                                }}
+                              >
+                                {tier.label}
+                              </span>
+
+                              <div className="flex gap-0.5 shrink-0">
+                                {[...Array(5)].map((_, d) => (
+                                  <span
+                                    key={d}
+                                    className="w-1.5 h-1.5 rounded-full"
+                                    style={{
+                                      background:
+                                        d < tier.dots
+                                          ? cat.color
+                                          : 'rgba(255,255,255,0.1)'
+                                    }}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
                     </div>
                   </div>
+
                 </div>
               </motion.div>
             ))}

@@ -5,21 +5,6 @@ import { BiNetworkChart } from 'react-icons/bi';
 
 export const skillCategories = [
   {
-    id: 'frontend',
-    title: 'Frontend Development',
-    icon: '🎨',
-    color: '#f97316',
-    gradient: 'from-orange-500 to-yellow-500',
-    skills: [
-      { name: 'React.js', level: 85 },
-      { name: 'Next.js', level: 80 },
-      { name: 'JavaScript (ES6+)', level: 88 },
-      { name: 'TypeScript', level: 75 },
-      { name: 'Tailwind CSS', level: 85 },
-      { name: 'SSR / SSG', level: 78 },
-    ]
-  },
-  {
     id: 'backend',
     title: 'Backend & APIs',
     icon: '🚀',
@@ -33,7 +18,6 @@ export const skillCategories = [
       { name: 'FastAPI', level: 82 },
       { name: 'RESTful APIs', level: 95 },
       { name: 'Microservices', level: 85 },
-      { name: 'Spring Cloud', level: 78 },
     ]
   },
   {
@@ -43,8 +27,7 @@ export const skillCategories = [
     color: '#3b82f6',
     gradient: 'from-blue-500 to-cyan-500',
     skills: [
-      { name: 'Google Gemini API', level: 90 },
-      { name: 'LangChain', level: 80 },
+      { name: 'LangChain4j', level: 80 },
       { name: 'Spring AI', level: 78 },
       { name: 'Prompt Engineering', level: 88 },
       { name: 'RAG Systems', level: 75 },
@@ -52,50 +35,46 @@ export const skillCategories = [
     ]
   },
   {
-    id: 'ml',
-    title: 'ML & Data Science',
-    icon: '🧠',
-    color: '#06b6d4',
-    gradient: 'from-cyan-500 to-emerald-500',
-    skills: [
-      { name: 'Scikit-learn', level: 82 },
-      { name: 'Pandas', level: 88 },
-      { name: 'NumPy', level: 85 },
-      { name: 'Feature Engineering', level: 78 },
-      { name: 'Matplotlib', level: 80 },
-      { name: 'Model Training', level: 75 },
-    ]
-  },
-  {
     id: 'database',
-    title: 'Databases & Storage',
+    title: 'Databases & Messaging',
     icon: '🗃️',
     color: '#10b981',
     gradient: 'from-emerald-500 to-teal-500',
     skills: [
-      { name: 'PostgreSQL', level: 88 },
-      { name: 'MySQL', level: 85 },
+      { name: 'PostgreSQL / MySQL', level: 85 },
       { name: 'MongoDB', level: 80 },
-      { name: 'Hibernate / JPA', level: 78 },
-      { name: 'Redis', level: 70 },
-      { name: 'AWS S3', level: 75 },
+      { name: 'Vector Databases', level: 72 },
+      { name: 'Apache Kafka', level: 72 },
+      { name: 'RabbitMQ', level: 75 },
     ]
   },
   {
     id: 'devops',
-    title: 'DevOps & Infrastructure',
+    title: 'DevOps & Cloud',
     icon: '⚙️',
     color: '#ec4899',
     gradient: 'from-pink-500 to-purple-500',
     skills: [
       { name: 'Docker', level: 85 },
       { name: 'Kubernetes', level: 70 },
-      { name: 'Google Cloud', level: 82 },
-      { name: 'Apache Kafka', level: 72 },
-      { name: 'RabbitMQ', level: 75 },
+      { name: 'AWS (S3, Lambda', level: 75 },
       { name: 'Maven', level: 85 },
       { name: 'Git', level: 92 },
-      { name: 'CI/CD', level: 75 },
+    ]
+  },
+  {
+    id: 'salesforce',
+    title: 'Salesforce Development',
+    icon: '☁️',
+    color: '#00A1E0',
+    gradient: 'from-sky-500 to-blue-600',
+    skills: [
+      { name: 'Salesforce Administration', level: 85 },
+      { name: 'Salesforce Development', level: 80 },
+      { name: 'Salesforce Automation', level: 78 },
+      { name: 'Apex', level: 75 },
+      { name: 'SOQL / SOSL', level: 80 },
+      { name: 'Lightning Web Components', level: 72 },
     ]
   }
 ];

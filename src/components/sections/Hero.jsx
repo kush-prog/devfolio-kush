@@ -104,7 +104,7 @@ export default function Hero() {
               transition={{ delay: 0.9 }}
               className="text-base md:text-lg text-star-silver/70 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed"
             >
-              Building intelligent systems at the intersection of AI, backend architecture, and cloud-native engineering.
+              Software Engineer specializing in Java & Spring Boot — building production REST APIs, microservices, and LLM-powered features with RAG pipelines and Google Gemini API. Also experienced in Salesforce development with Apex and SOQL.
             </motion.p>
 
             {/* CTAs */}
@@ -150,9 +150,10 @@ export default function Hero() {
               className="flex gap-8 mt-12 justify-center lg:justify-start"
             >
               {[
-                { value: '6+', label: 'Projects' },
-                { value: '25+', label: 'Technologies' },
+                { value: '20+', label: 'Technologies' },
+                { value: '7+', label: 'Projects' },
                 { value: '12+', label: 'Cloud Badges' },
+                { value: '16000+', label: 'Salesforce Trailhead Points' }
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div className="text-2xl font-orbitron font-bold text-gradient">{stat.value}</div>

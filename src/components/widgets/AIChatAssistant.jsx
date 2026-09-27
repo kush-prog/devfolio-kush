@@ -74,7 +74,7 @@ export default function AIChatAssistant() {
       const botMsg = {
         id: Date.now() + 1,
         type: 'bot',
-        text: res.ok ? data.reply : "Sorry, something went wrong. Please try again in a moment.",
+        text: res.ok ? data.reply : (data.error || "Sorry, something went wrong. Please try again in a moment."),
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botMsg]);

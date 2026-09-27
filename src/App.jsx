@@ -10,7 +10,7 @@ import Projects from './components/sections/Projects';
 import Experience from './components/sections/Experience';
 import Education from './components/sections/Education';
 import Contact from './components/sections/Contact';
-import AIChatAssistant from './components/chat/AIChatAssistant';
+import AIChatAssistant from "./components/widgets/AIChatAssistant";
 
 /* Cursor particle trail effect */
 function CursorTrail() {

@@ -78,3 +78,19 @@ export const skillCategories = [
     ]
   }
 ];
+
+export const otherSkills = [
+  'Python',
+  'Oracle',
+  'Postman',
+  'Node.js',
+  'Express.js',
+  'React.js',
+  'Next.js',
+  'JavaScript',
+  'TypeScript',
+  'Tailwind CSS',
+  'Vue.js',
+  'Nuxt.js',
+  'Storybook',
+];
